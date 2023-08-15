@@ -8,22 +8,25 @@ const Home = () => {
         {title: 'The Grapes of Wrath', body: 'Lorem ipsum...', author: 'John Steinbeck', id: 3},
         {title: 'The Pearl', body: 'Lorem ipsum...', author: 'John Steinbeck', id: 4}
     ]);
-const title = "All blogs";
-const johns = "John Steinbeck blogs";
-const handleDelete = (id) => {
-    const newblogs = blogs.filter(blog => blog.id !== id);
-    setBlogs(newblogs)
-}
+    const title = "All blogs";
+    const johns = "John Steinbeck blogs";
+    const handleDelete = (id) => {
+        const newblogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newblogs)
+    }
+
+    const [name, setName] = useState('Arthur');
 
 useEffect(() => {
     console.log('use effect ran');
-    console.log(blogs);
-})
+},[name])
 
 
     return (
         <div className="home">
             < BlogList shared = {blogs} title = { title } handleDelete = {handleDelete}/>
+            <button onClick={()=> setName('Programmer')}>change name</button>
+            <p>{ name }</p>
         </div>
     );
 }
