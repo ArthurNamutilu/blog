@@ -10,10 +10,13 @@ const Home = () => {
     ]);
 const title = "All blogs";
 const johns = "John Steinbeck blogs";
+const handleDelete = (id) => {
+    const newblogs = blogs.filter(blog => blog.id !== id);
+    setBlogs(newblogs)
+}
     return (
         <div className="home">
-            < BlogList shared = {blogs} title = { title }/>
-            < BlogList shared = {blogs.filter((blog) => blog.author === 'John Steinbeck')} title = { johns }/>
+            < BlogList shared = {blogs} title = { title } handleDelete = {handleDelete}/>
         </div>
     );
 }

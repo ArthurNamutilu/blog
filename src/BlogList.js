@@ -1,4 +1,4 @@
-const BlogList = ({shared, title}) => {  // props object
+const BlogList = ({shared, title, handleDelete}) => {  // props object
     return ( 
         <div className="bloglist">
             <h2>{ title }</h2>
@@ -6,6 +6,7 @@ const BlogList = ({shared, title}) => {  // props object
                 <div className="blog-preview" key={blog.id}>
                     <h2>{ blog.title }</h2>
                     <p>Written by {blog.author}</p>
+                    <button onClick={ () => handleDelete(blog.id)}>delete blog</button>
                 </div>
             )
             )}
